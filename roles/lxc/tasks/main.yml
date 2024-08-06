@@ -1,0 +1,23 @@
+---
+- name: Create new lcx template
+  community.general.proxmox:
+    node: "{{ proxmox_node }}"
+    hostname: "{{ hostname }}"
+    api_user: "{{ api_user }}"
+    api_password: "{{ api_password }}"
+    api_host: "{{ proxmox_api_host }}"
+    password: "{{ container_password }}"
+    cores: "{{ lxc_cores }}"
+    memory: "{{ lxc_mem }}"
+    unprivileged: false
+    ostemplate: "{{ lxc_template }}"
+    disk: "{{ lxc_disk }}"
+    netif: '{"net0":"name=eth0,gw=192.168.1.1,ip=192.168.1.167/24,bridge=vmbr0"}'
+- name: Start container
+  community.general.proxmox:
+    hostname: "{{ hostname }}"
+    api_user: "{{ api_user }}"
+    api_password: "{{ api_password }}"
+    api_host: "{{ proxmox_api_host }}"
+    state: started
+...

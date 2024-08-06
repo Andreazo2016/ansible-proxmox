@@ -1,0 +1,12 @@
+hostname: lcx-ansible-template
+proxmox_node: proxmox
+api_user: root@pam
+api_password: root@123
+proxmox_api_host: 192.168.1.238
+container_password: 100896
+lxc_cores: 2
+lxc_mem: 1024
+lxc_template: 'hd-externo-1tb:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst'
+lxc_disk: 'hd-externo-1tb:10'
+ansible_python_interpreter: "/usr/bin/python3"
+ip_address_host: "{{ ansible_facts['default_ipv4']['address'] }}"
